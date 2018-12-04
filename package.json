@@ -1,0 +1,25 @@
+{
+  "name": "pairing-system",
+  "version": "1.0.0",
+  "description": "a web application, the main purpose of it is to match the students as pairs for each sprint randomly.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3",
+    "mongoose": "^5.3.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ameirahassoun/Pairing-System.git"
+  },
+  "author": "ameiraHassoun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ameirahassoun/Pairing-System/issues"
+  },
+  "homepage": "https://github.com/ameirahassoun/Pairing-System#readme"
+}
