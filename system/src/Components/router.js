@@ -11,7 +11,7 @@ class Router extends React.Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path='/' component= {Home} />
-                    <Route exact path='/add' component={Add} />
+                    <Route exact path='/addStudent' component={Add} />
                     <Route exact path='/pairing' component={Pairing} />
                     <Route exact path='/history' component={History} />
                 </Switch>

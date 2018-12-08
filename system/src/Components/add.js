@@ -12,6 +12,20 @@ class Add extends Component {
       }
     }
 
+    componentWillMount(){
+        
+        Axios.get('/getAllStudents')
+          .then(data => {
+              this.setState({
+                allStudents:data
+              })
+          })
+        .catch(err => {
+            console.log('failed to add student')
+            throw err;
+        })
+    };
+
     handleChange = e =>  {
         this.setState({
           [e.target.name] :e.target.value
@@ -20,7 +34,7 @@ class Add extends Component {
 
       addstudent = () => {
         const { studentname, level } = this.state;
-        console.log("addstudent",this.state);
+
         Axios.post('/addStudent', {
             studentName: studentname,
             studentLevel: level
@@ -66,9 +80,10 @@ class Add extends Component {
       };
     
     render() {
-        const { allStudents }
+        const { allStudents } = this.state;
         return (
         <div>
+            <h1>Add Student</h1>
             <input type='text'
                 name='studentname'
                 placeholder='student name'
