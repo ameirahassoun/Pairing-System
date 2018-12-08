@@ -12,3 +12,19 @@ db.once('open', () => {
     console.log('mongoose connected successfully');
 });
 
+const HistorySchema = mongoose.Schema({
+    firstStudent:[{ type:String }],
+    secondStudent:[{ type:String }]
+})
+
+const StudentsSchema = mongoose.Schema({
+    studentName : { type: String, index: {unique:true}, required:true },
+    studentLevel : { type: Number, required : true},
+    pairs:[{type: String}]
+})
+
+const History = mongoose.model('History',HistorySchema);
+const Students = mongoose.model('Students',StudentsSchema);
+
+module.exports = Students;
+module.exports = History;
