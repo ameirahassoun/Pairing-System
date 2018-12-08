@@ -66,6 +66,7 @@ class Add extends Component {
       };
     
     render() {
+        const { allStudents }
         return (
         <div>
             <input type='text'
@@ -83,6 +84,24 @@ class Add extends Component {
                 <button onClick={this.addstudent}>send</button>
         
                 <hr />
+                <br />
+                {allStudents.map((student,i) => {
+                    return(
+                        <h3 key={i}>{student.studentName}   
+                         {student.studentLevel} 
+                        <input 
+                            name='newlevel' 
+                            type='number' 
+                            min='0'
+                            max='5' 
+                            onChange={this.handleChange} />
+                        <button value={student._id} onClick={this.edit} >edit</button>
+                        <button value={student._id} onClick={this.delete} >delete</button>
+                        </h3>  
+                    )
+                    })
+                
+                }
         </div>
         )
     }
