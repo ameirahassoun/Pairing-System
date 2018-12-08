@@ -66,7 +66,7 @@ class Pairing extends Component {
 
     save = () => {
         const { firstStudentsArray , secondStudentsArray } = this.state;
-        axios.post('/history/addHistory',
+        axios.post('/addHistory',
         {
             firstStudentsArray: firstStudentsArray,
             secondStudentsArray: secondStudentsArray

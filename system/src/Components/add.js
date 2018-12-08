@@ -75,6 +75,7 @@ class Add extends Component {
         })
         .catch(err => {
             console.log('failed to edit student')
+            throw err;
 
         })
       };
