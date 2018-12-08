@@ -17,7 +17,6 @@ class Pairing extends Component {
         })
       .catch(err => {
           console.log('failed to add student')
-
       })  
   };
 
