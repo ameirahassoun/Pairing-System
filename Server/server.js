@@ -11,3 +11,13 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(path.join(__dirname, '../system/build/index.html')))
 });
+
+const PORT = process.env.PORT || 3200;
+
+if (!module.parent) {
+    app.listen(PORT, () => {
+        console.log(`The Port : ${PORT}`);
+    });
+}
+
+module.exports = app;
