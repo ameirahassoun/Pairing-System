@@ -16,7 +16,7 @@ class Pairing extends Component {
 
     componentWillMount() {
         axios.get('/getAllStudents')
-        .then(data => {
+        .then(({data}) => {
             if (!data.length % 2 === 0) {
                 data.push({
                 studentName: 'alone'
@@ -67,11 +67,11 @@ class Pairing extends Component {
     save = () => {
         const { firstStudentsArray , secondStudentsArray } = this.state;
         axios.post('/addHistory',
-        {
+          {
             firstStudentsArray: firstStudentsArray,
             secondStudentsArray: secondStudentsArray
           })
-          .then(() => {
+          .then((data) => {
               this.addToPairs();
           }) 
           .catch(err => {
