@@ -15,10 +15,12 @@ class Add extends Component {
     componentWillMount(){
         
         Axios.get('/getAllStudents')
-          .then(data => {
-              this.setState({
-                allStudents:data
-              })
+          .then(({data}) => {
+              if(data){
+                  this.setState({
+                    allStudents:data
+                  })
+              }
           })
         .catch(err => {
             console.log('failed to add student')
@@ -42,6 +44,7 @@ class Add extends Component {
 
         .then(() => {
               console.log('students added') 
+              this.componentWillMount()
           })       
         .catch(err => {
 
@@ -50,7 +53,6 @@ class Add extends Component {
       };
     
       delete = e => {
-        
         Axios.delete('/deletestudent',{
             _id: e.target.value,
           })
@@ -82,6 +84,7 @@ class Add extends Component {
     
     render() {
         const { allStudents } = this.state;
+        
         return (
         <div>
             <h1>Add Student</h1>
@@ -101,7 +104,8 @@ class Add extends Component {
         
                 <hr />
                 <br />
-                {allStudents.map((student,i) => {
+                {allStudents !== 0 ? 
+                 allStudents.map((student,i) => {
                     return(
                         <h3 key={i}>{student.studentName}   
                          {student.studentLevel} 
@@ -116,7 +120,7 @@ class Add extends Component {
                         </h3>  
                     )
                     })
-                
+                :(<h2>there's no data</h2>)
                 }
         </div>
         )
