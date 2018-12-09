@@ -26,5 +26,5 @@ const StudentsSchema = mongoose.Schema({
 const History = mongoose.model('History',HistorySchema);
 const Students = mongoose.model('Students',StudentsSchema);
 
-module.exports = Students;
-module.exports = History;
+module.exports.Students= Students;
+module.exports.History = History;
